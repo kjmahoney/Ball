@@ -9,7 +9,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 
 document.body.appendChild( renderer.domElement );
 
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 			var cube = new THREE.Mesh( geometry, material );
 			scene.add( cube );
@@ -17,6 +17,8 @@ var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 camera.position.z = 5
 
 let velocity = 0.1;
+
+console.log(cube)
 
 function animate() {
 	requestAnimationFrame( animate );
@@ -45,3 +47,11 @@ function animate() {
 }
 
 animate();
+
+
+
+// const ball = document.getElementById('ball')
+// console.log('kevin');
+// console.log(ball);
+// var cord = ball.getBoundingClientRect();
+// console.log(cord.top, cord.right, cord.bottom, cord.left);
