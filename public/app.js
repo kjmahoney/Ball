@@ -6,15 +6,18 @@ ball.style.height = "50px"
 ball.style.left = "50%"
 ball.style.top = "50%"
 
+let rotation = 1
+
+
 handleOrientation = (event) => {
 	let yTilt = event.beta
 	let xTilt = event.gamma
 
-	let yIncrement = (1 + (Math.abs(yTilt) / 10))
-	let xIncrement = (1 + (Math.abs(xTilt) / 10))
-
 	let xVelocity = 0
 	let yVelocity = 0
+
+	let yIncrement = (1 + (Math.abs(yTilt) / 10))
+	let xIncrement = (1 + (Math.abs(xTilt) / 10))
 
 	if (xTilt >= 10) {
 		xVelocity += xIncrement
@@ -49,14 +52,18 @@ handleOrientation = (event) => {
 	}
 
 	if (xVelocity == 0 && yVelocity == 0) {
-		ball.classList.remove("u-rotate")
+		rotation += 0
 	}
 	else {
-		ball.classList.add("u-rotate")
+		rotation += 10
 	}
 
 	ball.style.top = parseInt(ball.style.top) + yVelocity + "px"
 	ball.style.left = parseInt(ball.style.left) + xVelocity + "px"
+	// ball.style.webkitTransform = "rotate(2deg)";
+	ball.style.webkitTransform = `rotate(${rotation}deg)`;
+
+	console.log(ball.style.transform);
 }
 
 window.addEventListener("deviceorientation", handleOrientation, true);
