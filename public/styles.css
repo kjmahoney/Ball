@@ -4,6 +4,7 @@ html, body {
 }
 
 .c-field {
+  background-color: black;
   display: inline-block;
   height: 100%;
   perspective: 1200px;
@@ -13,7 +14,7 @@ html, body {
 }
 
 .c-ball {
-  background: radial-gradient(circle at 50% 120%, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
+  background: radial-gradient(circle at 50% 120%, yellow, purple 10%, #055194 80%, #76deef 100%);
   border-radius: 50%;
   display: inline-block;
   height: 50px;
@@ -21,7 +22,18 @@ html, body {
   position: absolute;
   transform: rotate(20deg);
   width: 50px;
+
 }
+
+.u-rotate {
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 /* .c-shadow {
   position: absolute;

@@ -1,8 +1,8 @@
 const ball = document.getElementById('ball')
 const field = document.getElementById('field')
 
-ball.style.width = "25px"
-ball.style.height = "25px"
+ball.style.width = "50px"
+ball.style.height = "50px"
 ball.style.left = "50%"
 ball.style.top = "50%"
 
@@ -48,6 +48,12 @@ handleOrientation = (event) => {
 		yVelocity += yIncrement
 	}
 
+	if (xVelocity == 0 && yVelocity == 0) {
+		ball.classList.remove("u-rotate")
+	}
+	else {
+		ball.classList.add("u-rotate")
+	}
 
 	ball.style.top = parseInt(ball.style.top) + yVelocity + "px"
 	ball.style.left = parseInt(ball.style.left) + xVelocity + "px"
