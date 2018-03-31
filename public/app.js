@@ -9,7 +9,6 @@ ball.style.left = "50%"
 ball.style.top = "50%"
 
 let rotation = 1
-
 let xVelocity = 0
 let yVelocity = 0
 
@@ -27,8 +26,8 @@ handleOrientation = (event) => {
 	let yTilt = event.beta
 	let xTilt = event.gamma
 
-	let yIncrement = (.01 + (Math.abs(yTilt) / 10000))
-	let xIncrement = (.01 + (Math.abs(xTilt) / 10000))
+	let yIncrement = (.05 + (Math.abs(yTilt) / 10000))
+	let xIncrement = (.05 + (Math.abs(xTilt) / 10000))
 
 	if (xTilt >= 10) {
 		xVelocity += xIncrement
@@ -52,7 +51,7 @@ handleOrientation = (event) => {
 	}
 
 	if ( parseInt(ball.style.left) <= 0) {
-		xVelocity +=5
+		xVelocity = Math.abs(xVelocity)
 		touchesCounter += 1
 	}
 
@@ -62,7 +61,7 @@ handleOrientation = (event) => {
 	}
 
 	if ( parseInt(ball.style.top) <= 0) {
-		yVelocity += 5
+		yVelocity = Math.abs(yVelocity)
 		touchesCounter += 1
 	}
 
