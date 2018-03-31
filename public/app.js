@@ -68,6 +68,9 @@ handleOrientation = (event) => {
 	if (xVelocity == 0 && yVelocity == 0) {
 		rotation += 0
 	}
+	if (xVelocity < 0) {
+		rotation -= 10
+	}
 	else {
 		rotation += 10
 	}
