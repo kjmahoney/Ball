@@ -1,6 +1,5 @@
 module.exports = {
   rotate: (xVelocity, yVelocity, rotation) =>  {
-    console.log(xVelocity);
     if (xVelocity == 0 && yVelocity == 0) {
   		return rotation += 0
   	}

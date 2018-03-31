@@ -9,6 +9,8 @@ const handleVelocity = require('./velocity')
 ////
 //SETTINGS
 ////
+ball.style.width = "50px";
+ball.style.height = "50px";
 ball.style.left = "50%"
 ball.style.top = "50%"
 
