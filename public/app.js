@@ -13,7 +13,7 @@ ball.style.width = "50px";
 ball.style.height = "50px";
 ball.style.left = "50%"
 ball.style.top = "50%"
-
+//turn these values into init object
 let rotation = 1
 let xVelocity = 0
 let yVelocity = 0
@@ -26,6 +26,11 @@ const handleTimer = () => {
 	timer.innerHTML = timeCounter;
 }
 setInterval(handleTimer, 1000);
+
+const endCondition = (touchesCounter, timeCounter) => {
+	let finalScore = timer.innerHTML/touches.innerHTML
+	alert(`Your final score is ${finalScore}`)
+}
 
 handleOrientation = (event) => {
 	let yTilt = event.beta
@@ -70,4 +75,5 @@ handleOrientation = (event) => {
 	touches.innerHTML = touchesCounter
 }
 
+window.addEventListener('touchstart', endCondition, false);
 window.addEventListener("deviceorientation", handleOrientation, true);
