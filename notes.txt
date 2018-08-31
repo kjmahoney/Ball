@@ -1,0 +1,1 @@
+add center spot for extra points (collision mitigation)

@@ -1,18 +1,23 @@
-const ball = document.getElementById('ball')
-const field = document.getElementById('field')
-const timer = document.getElementById('timer')
-const touches = document.getElementById('touches')
+const ball = document.getElementById('ball');
+const field = document.getElementById('field');
+const timer = document.getElementById('timer');
+const touches = document.getElementById('touches');
 
-const handleRotation = require('./rotation')
-const handleVelocity = require('./velocity')
+// const settings = require('./settings');
+
+const {ballSize, horizontalAlign, verticalAlign} = require('./settings');
+
+const handleRotation = require('./rotation');
+const handleVelocity = require('./velocity');
 
 ////
 //SETTINGS
 ////
-ball.style.width = "50px";
-ball.style.height = "50px";
-ball.style.left = "50%"
-ball.style.top = "50%"
+ball.style.width = ballSize;
+ball.style.height = ballSize;
+ball.style.left = horizontalAlign;
+ball.style.top = verticalAlign;
+
 //turn these values into init object
 let rotation = 1
 let xVelocity = 0

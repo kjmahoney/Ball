@@ -1,19 +1,24 @@
 (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
-const ball = document.getElementById('ball')
-const field = document.getElementById('field')
-const timer = document.getElementById('timer')
-const touches = document.getElementById('touches')
+const ball = document.getElementById('ball');
+const field = document.getElementById('field');
+const timer = document.getElementById('timer');
+const touches = document.getElementById('touches');
 
-const handleRotation = require('./rotation')
-const handleVelocity = require('./velocity')
+// const settings = require('./settings');
+
+const {ballSize, horizontalAlign, verticalAlign} = require('./settings');
+
+const handleRotation = require('./rotation');
+const handleVelocity = require('./velocity');
 
 ////
 //SETTINGS
 ////
-ball.style.width = "50px";
-ball.style.height = "50px";
-ball.style.left = "50%"
-ball.style.top = "50%"
+ball.style.width = ballSize;
+ball.style.height = ballSize;
+ball.style.left = horizontalAlign;
+ball.style.top = verticalAlign;
+
 //turn these values into init object
 let rotation = 1
 let xVelocity = 0
@@ -79,7 +84,7 @@ handleOrientation = (event) => {
 window.addEventListener('touchstart', endCondition, false);
 window.addEventListener("deviceorientation", handleOrientation, true);
 
-},{"./rotation":2,"./velocity":3}],2:[function(require,module,exports){
+},{"./rotation":2,"./settings":3,"./velocity":4}],2:[function(require,module,exports){
 module.exports = {
   rotate: (xVelocity, yVelocity, rotation) =>  {
     if (xVelocity == 0 && yVelocity == 0) {
@@ -95,6 +100,13 @@ module.exports = {
 }
 
 },{}],3:[function(require,module,exports){
+module.exports = {
+  ballSize: '50px',
+  horizontalAlign: '50%',
+  verticalAlign: '50%',
+}
+
+},{}],4:[function(require,module,exports){
 module.exports = {
 
   X: (xTilt, xVelocity) => {
